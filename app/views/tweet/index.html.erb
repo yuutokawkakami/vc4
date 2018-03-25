@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-lg-12">
+    <h1>顧客情報一覧</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-6">
+    <p>お客様情報が表示されます。</p>
+  </div>
+  <div class="col-lg-6">
+    <%= link_to '顧客登録', new_tweets_path, class: "btn btn-default pull-right" %>
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <th>姓</th>
+      <th>名</th>
+      <th>電子メール</th>
+      <th>所属会社</th>
+      <th>リンク</th>
+    </thead>
+    <tbody>
+      <% @tweets.each do |tweets| %>
+        <tr>
+          <td><%= tweets.family_name %></td>
+          <td><%= tweets.given_name %></td>
+          <td><%= tweets.email %></td>
+          <td><%= tweets.company.name %></td>
+          <td><%= link_to '詳細', tweets, class: "btn btn-default btn-xs" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
